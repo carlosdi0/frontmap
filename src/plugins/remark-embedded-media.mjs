@@ -100,6 +100,61 @@ const embedHandlers = {
     `
   },
 
+  // Vimeo
+  vimeo: (node) => {
+    let videoId = node.attributes?.id ?? ''
+    const url = node.attributes?.url ?? ''
+
+    if (!videoId && url) {
+      const match = url.match(/vimeo\.com\/(\d+)/)
+      if (match) videoId = match[1]
+    }
+
+    if (!videoId) {
+      return false
+    }
+
+    return `
+    <figure>
+      <iframe
+        style="border-radius:6px"
+        src="https://player.vimeo.com/video/${videoId}"
+        title="Vimeo video player"
+        loading="lazy"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </figure>
+    `
+  },
+
+  // Video local
+  video: (node) => {
+    const src = node.attributes?.src
+    const poster = node.attributes?.poster
+    const caption = node.attributes?.caption
+
+    if (!src) {
+      return false
+    }
+
+    return `
+    <figure>
+      <video
+        controls
+        ${poster ? `poster="${poster}"` : ''}
+        style="width: 100%; height: auto; border-radius: 6px;"
+      >
+        <source src="${src}" type="video/mp4" />
+        <source src="${src.replace('.mp4', '.webm')}" type="video/webm" />
+        <p>Tu navegador no soporta el elemento video.</p>
+      </video>
+      ${caption ? `<figcaption>${caption}</figcaption>` : ''}
+    </figure>
+    `
+  },
+
   // Bilibili
   bilibili: (node) => {
     let bvid = node.attributes?.id ?? ''
