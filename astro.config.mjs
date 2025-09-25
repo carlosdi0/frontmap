@@ -6,19 +6,22 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: 'Frontmap',
+			//social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Get Started',
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: 'Vamos a empezar', slug: 'get-started/get-started' },
+						{ label: 'Roadmap', slug: 'get-started/roadmap' },
 					],
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'Fundamentos',
+					items: [
+						{ label: 'Historia y funcionamiento de la Web', slug: 'fundamentals/internet' },
+						{ label: 'HTTP - Protocolo de comunicación web', slug: 'fundamentals/http' },
+					],
 				},
 			],
 		}),
