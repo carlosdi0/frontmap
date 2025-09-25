@@ -72,7 +72,7 @@ async function fixRelativeImagePaths(
               format: 'webp',
               width: 800
             })
-            
+
             // Always use the optimized image path in production
             img.setAttribute('src', new URL(processedImage.src, baseUrl).toString())
           }
@@ -100,7 +100,7 @@ async function fixRelativeImagePaths(
  */
 async function generateFeedInstance(context: APIContext) {
   const siteUrl = (context.site?.toString() || themeConfig.site.website).replace(/\/$/, '')
-  const { title = '', description = '', author = '', language = 'en-US' } = themeConfig.site
+  const { title = '', description = '', author = '', language = 'es-ES' } = themeConfig.site
 
   const feed = new Feed({
     title: title,
@@ -127,7 +127,7 @@ async function generateFeedInstance(context: APIContext) {
   )
   const sortedPosts = posts.sort(
     (a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
-      b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+      a.data.order - b.data.order
   )
 
   for (const post of sortedPosts) {

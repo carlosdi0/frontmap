@@ -9,12 +9,13 @@ export async function getFilteredPosts() {
 }
 
 /**
- * Get all posts sorted by publication date, filtering out posts whose filenames start with _
+ * Get all posts sorted by order, filtering out posts whose filenames start with _
  */
 export async function getSortedFilteredPosts() {
   const posts = await getFilteredPosts()
+  console.log(posts)
   return posts.sort(
     (a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
-      b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+      a.data.order - b.data.order
   )
 }
