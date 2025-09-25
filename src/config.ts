@@ -3,7 +3,7 @@ import type { ThemeConfig } from './types'
 export const themeConfig: ThemeConfig = {
   // SITE INFO ///////////////////////////////////////////////////////////////////////////////////////////
   site: {
-    website: '', // Site domain
+    website: 'https://front-road.vercel.app/', // Site domain
     title: 'Front road', // Site title
     author: 'Carlos Dio', // Author name
     description: 'Guía completa y actualizada para el desarrollo frontend', // Site description
