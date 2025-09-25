@@ -7,7 +7,6 @@ const { posts } = Astro.props as PostListProps
 ---
 
 <ul>
-  {JSON.stringify(posts)}
   {
     posts.sort((a, b) => a.data.order - b.data.order).map((post) => (
       <li>
