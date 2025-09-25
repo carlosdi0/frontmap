@@ -52,19 +52,19 @@
         // Movie/TV: Director, Cast, Genre, Release Year
         if (data.director && data.director.length > 0) {
           const directors = Array.isArray(data.director) ? data.director.join(', ') : data.director
-          fieldInfo.push(`导演: ${directors}`)
+          fieldInfo.push(`Director: ${directors}`)
         }
         if (data.actor && data.actor.length > 0) {
           const actors = Array.isArray(data.actor) ? data.actor.join(', ') : data.actor
-          fieldInfo.push(`演员: ${actors}`)
+          fieldInfo.push(`Actores: ${actors}`)
         }
         if (data.genre && data.genre.length > 0) {
           const genres = Array.isArray(data.genre) ? data.genre.join(', ') : data.genre
-          fieldInfo.push(`类型: ${genres}`)
+          fieldInfo.push(`Género: ${genres}`)
         }
         // Add release year - "Release Date" for movies, "Premiere" for TV
         if (data.year) {
-          const timeLabel = category === 'movie' ? '上映时间' : '首播'
+          const timeLabel = category === 'movie' ? 'Fecha de estreno' : 'Primera emisión'
           fieldInfo.push(`${timeLabel}: ${data.year}`)
         }
       } else if (category === 'music' || category === 'album') {
@@ -72,26 +72,26 @@
         if (data.artist && data.artist.length > 0) {
           // Only show the first artist for music/album
           const artist = Array.isArray(data.artist) ? data.artist[0] : data.artist
-          fieldInfo.push(`艺术家: ${artist}`)
+          fieldInfo.push(`Artista: ${artist}`)
         }
         if (data.genre && data.genre.length > 0) {
           const genres = Array.isArray(data.genre) ? data.genre.join(', ') : data.genre
-          fieldInfo.push(`流派: ${genres}`)
+          fieldInfo.push(`Género: ${genres}`)
         }
         if (data.release_date) {
-          fieldInfo.push(`发行时间: ${data.release_date}`)
+          fieldInfo.push(`Fecha de lanzamiento: ${data.release_date}`)
         }
       } else if (category === 'book') {
         // Book: Author, Publisher
         if (data.author && data.author.length > 0) {
           const authors = Array.isArray(data.author) ? data.author.join(', ') : data.author
-          fieldInfo.push(`作者: ${authors}`)
+          fieldInfo.push(`Autor: ${authors}`)
         }
         // Check multiple possible publisher fields
         const publisher = data.publisher || data.pub_house || data.company
         if (publisher && (Array.isArray(publisher) ? publisher.length > 0 : publisher)) {
           const publishers = Array.isArray(publisher) ? publisher.join(', ') : publisher
-          fieldInfo.push(`出版社: ${publishers}`)
+          fieldInfo.push(`Editorial: ${publishers}`)
         }
       } else if (category === 'game') {
         // Game: Developer, Genre, Release Date
@@ -99,25 +99,25 @@
           const developers = Array.isArray(data.developer)
             ? data.developer.join(', ')
             : data.developer
-          fieldInfo.push(`开发者: ${developers}`)
+          fieldInfo.push(`Desarrollador: ${developers}`)
         }
         if (data.genre && data.genre.length > 0) {
           const genres = Array.isArray(data.genre) ? data.genre.join(', ') : data.genre
-          fieldInfo.push(`类型: ${genres}`)
+          fieldInfo.push(`Género: ${genres}`)
         }
         if (data.release_date) {
-          fieldInfo.push(`发行时间: ${data.release_date}`)
+          fieldInfo.push(`Fecha de lanzamiento: ${data.release_date}`)
         }
       } else if (category === 'podcast') {
         // Podcast: Host, Genre
         const host = data.host || data.artist || data.creator
         if (host && (Array.isArray(host) ? host.length > 0 : host)) {
           const hosts = Array.isArray(host) ? host.join(', ') : host
-          fieldInfo.push(`主播: ${hosts}`)
+          fieldInfo.push(`Presentador: ${hosts}`)
         }
         if (data.genre && data.genre.length > 0) {
           const genres = Array.isArray(data.genre) ? data.genre.join(', ') : data.genre
-          fieldInfo.push(`类型: ${genres}`)
+          fieldInfo.push(`Género: ${genres}`)
         }
       }
 

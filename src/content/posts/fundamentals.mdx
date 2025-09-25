@@ -1,0 +1,54 @@
+---
+title: 'Fundamentos de la web'
+pubDate: '2025-09-25'
+---
+
+## Introducción
+
+En esta sección vamos a hablar sobre la historia y funcionamiento de la web. Tratando temas como los protocolos de internet, el modelo cliente-servidor, el DNS y el funcionamiento de los navegadores.
+
+
+## Historia y funcionamiento de la Web
+
+La historia de __Internet__ no empezó con las páginas web. Se originó en la década de 1960 en los Estados Unidos como un proyecto gubernamental llamado __ARPANET__. El objetivo era crear una red de comunicación descentralizada que pudiera resistir ataques, un concepto crucial durante la Guerra Fría. Sus primeros usuarios fueron investigadores universitarios y científicos que la usaban para compartir datos y recursos.
+
+__La World Wide Web (WWW)__, el Internet que conocemos hoy, fue un invento de Tim Berners-Lee en 1989. Él propuso un sistema para compartir documentos de forma sencilla, para lo cual creó las tres tecnologías que son la base de la web moderna:
+
+- __HTML (HyperText Markup Language)__: El lenguaje para estructurar el contenido de las páginas.
+- __HTTP (HyperText Transfer Protocol)__: El protocolo para transferir información entre el servidor y el cliente.
+- __URL (Uniform Resource Locator)__: La dirección única que identifica cada recurso en la web.
+
+A principios de los años 90, se levantaron las restricciones sobre su uso comercial, lo que transformó Internet de una red militar y académica a una red pública global. Esto abrió la puerta para que empresas y particulares crearan sus propios sitios y servicios.
+
+## Protocolos de comunicación: HTTP y sus evoluciones
+
+El protocolo __HTTP__ es el "idioma" que el navegador y el servidor utilizan para comunicarse. Una solicitud HTTP tiene varias partes importantes:
+
+- __Métodos HTTP__: Le indican al servidor la acción que quieres realizar. Los más comunes son:
+    - `GET`: Para solicitar o obtener datos (por ejemplo, cargar una página web).
+    - `POST`: Para enviar datos al servidor (por ejemplo, los datos de un formulario de registro).
+- __Cabeceras (Headers)__: Son metadatos que proporcionan información adicional sobre la solicitud. Por ejemplo:
+    - `Host`: El dominio al que te conectas (ej. google.com).
+    - `User-Agent`: El navegador que estás usando (ej. Mozilla/5.0...).
+    - `Accept-Language`: Tu idioma preferido (ej. es).
+
+Una solicitud `GET` para la página de inicio de un sitio web se vería así:
+```
+GET / HTTP/1.1
+Host: google.com
+User-Agent: Mozilla/5.0 (...)
+Accept-Language: es
+```
+__HTTPS (HTTP Secure)__ es la versión segura de HTTP. La "S" significa "Secure". En lugar de enviar la información como una "postal", la encripta y la envía como una carta en un sobre sellado y con llave 🔒. Esta seguridad se logra con un certificado __TLS (Transport Layer Security)__, que es la versión moderna y segura del protocolo original __SSL (Secure Sockets Layer)__.
+
+__HTTP/2__: Mejoró el rendimiento con el multiplexing, permitiendo que el navegador y el servidor envíen y reciban múltiples archivos a la vez a través de una sola conexión.
+
+__HTTP/3__: La versión más reciente, que usa un protocolo llamado QUIC. Lo hace aún más rápido y eficiente, especialmente en redes inestables o móviles.
+
+## Referencias
+
+- [Cómo funciona la web](https://developer.mozilla.org/es/docs/Learn/Getting_started_with_the_web) - Una guía completa de MDN Web Docs.
+- [Historia de la Web](https://www.w3.org/History/19921103-hypertext/hypertext/WWW/TheProject.html) - Documentación oficial de W3C, la organización creada por Tim Berners-Lee.
+- [The Evolution of HTTP](https://www.google.com/search?q=https://web.dev/http-evolution/) - Un artículo de Google Developers que explica las diferencias entre las versiones de HTTP.
+- [How HTTPS Works](https://www.cloudflare.com/learning/ssl/what-is-https/) - Una explicación sencilla de Cloudflare sobre la seguridad web.
+
