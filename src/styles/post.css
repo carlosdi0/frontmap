@@ -21,15 +21,38 @@
 
 /* Headings (h1-h5)
  Adjust size or spacing below if needed. */
+.prose h1 {
+  font-size: var(--font-size-xl);
+  margin: 3.75em 0 1.75em 0;
+}
+
+.prose h2 {
+  font-size: var(--font-size-l);
+  margin: 3.75em 0 1.45em 0;
+}
+
+.prose h3 {
+  font-size: var(--font-size-s);
+  margin: 3.75em 0 1.75em 0;
+}
+
+.prose h4 {
+  font-size: var(--font-size-xs);
+  margin: 3.75em 0 1.75em 0;
+}
+
+.prose h5 {
+  font-size: var(--font-size-xs);
+  margin: 3.75em 0 1.75em 0;
+}
+
 .prose h1,
 .prose h2,
 .prose h3,
 .prose h4,
 .prose h5 {
-  font-size: var(--font-size-m);
   font-weight: var(--font-weight-bold);
   line-height: 1.75;
-  margin: 3.75em 0 1.75em 0;
 }
 
 /* Bold text */
@@ -364,16 +387,18 @@
   height: auto;
   border: none;
   background: none;
-  text-align: center;
+  text-align: left;
   position: relative;
 }
 
 .prose hr::before {
-  content: '***';
+  content: '';
   font-family: var(--mono);
   color: var(--text-tertiary);
   font-size: 0.875em;
   letter-spacing: 0.25em;
+  border-bottom: 1px solid #474747;
+  display: block;
 }
 
 /* Keyboard input */

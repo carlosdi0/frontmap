@@ -4,12 +4,13 @@ pubDate: '2025-09-25'
 order: 2
 ---
 
-## Introducción
+## 👋 Introducción
 
 En esta sección vamos a hablar sobre la historia y funcionamiento de la web. Tratando temas como los protocolos de internet, el modelo cliente-servidor, el DNS y el funcionamiento de los navegadores.
 
+***
 
-## Historia y funcionamiento de la Web
+## 📜 Historia y funcionamiento de la Web
 
 La historia de __Internet__ no empezó con las páginas web. Se originó en la década de 1960 en los Estados Unidos como un proyecto gubernamental llamado __ARPANET__. El objetivo era crear una red de comunicación descentralizada que pudiera resistir ataques, un concepto crucial durante la Guerra Fría. Sus primeros usuarios fueron investigadores universitarios y científicos que la usaban para compartir datos y recursos.
 
@@ -21,7 +22,9 @@ __La World Wide Web (WWW)__, el Internet que conocemos hoy, fue un invento de Ti
 
 A principios de los años 90, se levantaron las restricciones sobre su uso comercial, lo que transformó Internet de una red militar y académica a una red pública global. Esto abrió la puerta para que empresas y particulares crearan sus propios sitios y servicios.
 
-## Protocolos de comunicación: HTTP y sus evoluciones
+***
+
+## 📡 Protocolos de comunicación: HTTP y sus evoluciones
 
 El protocolo __HTTP__ es el "idioma" que el navegador y el servidor utilizan para comunicarse. Una solicitud HTTP tiene varias partes importantes:
 
@@ -40,16 +43,57 @@ Host: google.com
 User-Agent: Mozilla/5.0 (...)
 Accept-Language: es
 ```
+__HTTP (Hypertext Transfer Protocol)__ es el "idioma" que el navegador y el servidor utilizan para comunicarse. En su versión original, se comportaba como una postal que cualquiera podía leer si era interceptada, sin ningún tipo de seguridad.
+
 __HTTPS (HTTP Secure)__ es la versión segura de HTTP. La "S" significa "Secure". En lugar de enviar la información como una "postal", la encripta y la envía como una carta en un sobre sellado y con llave 🔒. Esta seguridad se logra con un certificado __TLS (Transport Layer Security)__, que es la versión moderna y segura del protocolo original __SSL (Secure Sockets Layer)__.
 
-__HTTP/2__: Mejoró el rendimiento con el multiplexing, permitiendo que el navegador y el servidor envíen y reciban múltiples archivos a la vez a través de una sola conexión.
+__HTTP/2__: Se creó para mejorar la velocidad. Mientras que HTTP/1.1 solo permitía enviar una solicitud a la vez (como una fila de personas en un mostrador), HTTP/2 introdujo el multiplexing. Esto significa que puede enviar y recibir múltiples solicitudes y respuestas al mismo tiempo a través de una sola conexión (como un restaurante con un mesero que toma todos los pedidos de la mesa a la vez).
 
 __HTTP/3__: La versión más reciente, que usa un protocolo llamado QUIC. Lo hace aún más rápido y eficiente, especialmente en redes inestables o móviles.
 
-## Referencias
+***
+
+## 🛜 Dominios, Hosting y DNS
+
+- Una __IP__ es una dirección única que identifica a un dispositivo en la red. Por ejemplo, `192.168.1.1` o `10.0.0.1`.
+- Un __dominio__ es una dirección única que identifica a un sitio web. Por ejemplo, `google.com` o `facebook.com`.
+- Un __DNS__ es el servicio que traduce los nombres de dominio a direcciones IP.
+- Un __Puerto__ es un número que identifica un servicio en un servidor. Por ejemplo, el puerto 80 es el puerto por defecto para HTTP y el puerto 443 es el puerto por defecto para HTTPS, sirve para diferenciar entre diferentes servicios que pueden estar en el mismo servidor, (Email, FTP, etc.)
+- Un __hosting__ es el servicio que aloja el sitio web en un servidor, hay varios tipos de hosting:
+    - __Compartido:__ El servidor es compartido con otros sitios web, los recursos son compartidos y también es más económico.
+    - __VPS:__ El servidor es compartido con otros sitios web pero los recursos están aislados para cada sitio web.
+    - __Dedicated:__ El servidor es dedicado a un solo sitio web, es la opción más cara pero la que ofrece más recursos.
+    - __Cloud:__ El servidor es alojado en un cloud provider, es la opción más flexible, se adapta a las necesidades de la web en cada momento, puede escalar según las necesidades.
+
+***
+
+## 🌐 Los navegadores
+
+El navegador es un software que no solo muestra la página, sino que la "construye" paso a paso a partir de los archivos que recibe del servidor.
+
+Los navegadores son los programas que usamos para ver las páginas web. Todos los navegadores tienen un motor que es el que se encarga de interpretar el código HTML, CSS y JavaScript y mostrarlo en la pantalla.
+Los primeros navegadores como Mosaic y Netscape Navigator fueron clave en la adopción de la web. A finales de los 90, la "guerra de los navegadores" impulsó la innovación. Hoy en día, el mercado está dominado por navegadores basados en el motor de Chromium (como Chrome y Edge), además de Firefox y Safari.
+
+El proceso de renderizado tiene varios pasos:
+- __DOM (Document Object Model):__ El navegador lee el código HTML y lo convierte en un "árbol" o plano de la estructura de la página. Este árbol es la guía de todos los elementos y sus relaciones.
+- __CSSOM (CSS Object Model):__ De forma similar, lee el código CSS para crear otro árbol con todas las reglas de estilo de la página.
+- __Árbol de Renderizado (Render Tree):__ Combina el DOM y el CSSOM en un nuevo árbol que solo contiene los elementos que son visibles y sus estilos finales aplicados. Por ejemplo, un elemento con display: none; está en el DOM, pero no en este árbol de renderizado.
+- __Layout (Reflow):__ El navegador toma el árbol de renderizado y calcula la posición y el tamaño exactos de cada elemento. Esto es crucial para que todo se coloque en el lugar correcto en la pantalla.
+- __Paint:__ Es el último paso. El navegador usa la información de los pasos anteriores para dibujar los píxeles de la página en la pantalla, pintando el contenido, los colores, los bordes, etc.
+
+***
+
+## 📍 Conclusión
+
+Con esto ya hemos entendido en que contexto aparecieron las primeras webs, como funciona el protocolo HTTP, incluso cómo se hace la renderización de la página web en un navegador. Espero que haya sido interesante y nos vemos en la siguiente sección.
+
+***
+
+## 📚 Referencias
 
 - [Cómo funciona la web](https://developer.mozilla.org/es/docs/Learn/Getting_started_with_the_web) - Una guía completa de MDN Web Docs.
 - [Historia de la Web](https://www.w3.org/History/19921103-hypertext/hypertext/WWW/TheProject.html) - Documentación oficial de W3C, la organización creada por Tim Berners-Lee.
 - [The Evolution of HTTP](https://www.google.com/search?q=https://web.dev/http-evolution/) - Un artículo de Google Developers que explica las diferencias entre las versiones de HTTP.
 - [How HTTPS Works](https://www.cloudflare.com/learning/ssl/what-is-https/) - Una explicación sencilla de Cloudflare sobre la seguridad web.
-
+- [How the web works](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works) - Una guía completa de MDN Web Docs sobre cómo funciona la web.
+- [How browsers work](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/) - Un artículo de HTML5 Rocks que explica cómo funcionan los navegadores.

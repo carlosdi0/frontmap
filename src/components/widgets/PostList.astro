@@ -2,31 +2,38 @@
 import FormattedDate from '@/components/widgets/FormattedDate.astro'
 import type { PostListProps } from '@/types'
 import { themeConfig } from '@/config'
+import { calculateReadingTime } from '@/utils/reading-time'
 
 const { posts } = Astro.props as PostListProps
 ---
 
 <ul>
   {
-    posts.map((post) => (
-      <li>
-        <a href={`/${post.id}/`}>
-          <div class={`post-item ${!themeConfig.date.dateOnRight ? 'date-left' : ''}`}>
-            <p class="title">{post.data.order}. {post.data.title}</p>
-            {themeConfig.date.dateOnRight && (
-              <div
-                class={themeConfig.general.postListDottedDivider ? 'dotted-divider' : 'divider'}
-              />
-            )}
-            {!themeConfig.date.dateOnRight && (
-              <p class="date font-features">
-                <FormattedDate date={post.data.pubDate} context="list" />
-              </p>
-            )}
-          </div>
-        </a>
-      </li>
-    ))
+    posts.map((post) => {
+      const readingTime = calculateReadingTime(post.body)
+      return (
+        <li>
+          <a href={`/${post.id}/`}>
+            <div class={`post-item ${!themeConfig.date.dateOnRight ? 'date-left' : ''}`}>
+              <p class="title">{post.data.order}. {post.data.title}</p>
+              {themeConfig.date.dateOnRight && (
+                <div
+                  class={themeConfig.general.postListDottedDivider ? 'dotted-divider' : 'divider'}
+                />
+              )}
+              <div class="post-meta">
+                {!themeConfig.date.dateOnRight && (
+                  <p class="date font-features">
+                    <FormattedDate date={post.data.pubDate} context="list" />
+                  </p>
+                )}
+                <p class="reading-time">{readingTime.text}</p>
+              </div>
+            </div>
+          </a>
+        </li>
+      )
+    })
   }
 </ul>
 <div class="placeholder"></div>
@@ -68,6 +75,10 @@ const { posts } = Astro.props as PostListProps
       color: var(--text-secondary);
       opacity: 1;
     }
+    ul:hover a:hover .reading-time {
+      color: var(--text-secondary);
+      opacity: 1;
+    }
   }
 
   .post-item {
@@ -91,6 +102,13 @@ const { posts } = Astro.props as PostListProps
     margin-right: 0.75rem;
   }
 
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
   .title {
     margin: 0;
     flex-shrink: 1;
@@ -107,6 +125,16 @@ const { posts } = Astro.props as PostListProps
     letter-spacing: var(--spacing-s);
     flex-shrink: 0;
     white-space: nowrap;
+  }
+
+  .reading-time {
+    margin: 0;
+    color: var(--text-secondary);
+    opacity: 0.75;
+    letter-spacing: var(--spacing-s);
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 0.875rem;
   }
 
   .divider {

@@ -13,7 +13,6 @@ export async function getFilteredPosts() {
  */
 export async function getSortedFilteredPosts() {
   const posts = await getFilteredPosts()
-  console.log(posts)
   return posts.sort(
     (a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
       a.data.order - b.data.order
